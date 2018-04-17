@@ -5,10 +5,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -68,7 +70,21 @@ public class gmailsign_printemail {
 			driver.findElement(By.xpath(".//*[@id=':2p']/div[5]")).click();
 			
 		Thread.sleep(200);
-		driver.quit();
+		 List<WebElement> Socialmails=driver.findElements(By.xpath("//*[@class='zA zE']"));
+		 int count=Socialmails.size();
+		 System.out.println(count);
+		 
+		 for (int i=0;i<10;i++)
+		 {
+				String emailtest=Socialmails.get(i).getText();
+				 System.out.println(emailtest);
+				 
+		
+		 }
+		
+				 
+		
+		 driver.quit();
 	
 	}
 
