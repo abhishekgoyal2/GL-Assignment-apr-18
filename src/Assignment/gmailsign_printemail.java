@@ -63,6 +63,10 @@ public class gmailsign_printemail {
 			driver.findElement(By.cssSelector(".WaidBe")).click();
 		
 
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id=':2p']/div[5]")));
+	
+			driver.findElement(By.xpath(".//*[@id=':2p']/div[5]")).click();
+			
 		Thread.sleep(200);
 		driver.quit();
 	
