@@ -70,14 +70,18 @@ public class gmailsign_printemail {
 			driver.findElement(By.xpath(".//*[@id=':2p']/div[5]")).click();
 			
 		Thread.sleep(200);
-		 List<WebElement> Socialmails=driver.findElements(By.xpath("//*[@class='zA zE']"));
+		 List<WebElement> Socialmails=driver.findElements(By.xpath(".//*[@class='xS' ]/div/div/span[@class='bog']"));
+		
+	
+	
 		 int count=Socialmails.size();
 		 System.out.println(count);
 		 
-		 for (int i=0;i<10;i++)
+	 for (int i=1;i<=10;i++)
 		 {
 				String emailtest=Socialmails.get(i).getText();
-				 System.out.println(emailtest);
+				 
+				System.out.println(" printing subject" + " " + i  + "of email " +  emailtest);
 				 
 		
 		 }
