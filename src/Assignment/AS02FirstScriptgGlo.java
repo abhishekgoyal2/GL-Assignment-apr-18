@@ -20,7 +20,7 @@ public class AS02FirstScriptgGlo {
 	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 		WebDriver driver = new FirefoxDriver();
-		int i=0;
+		
 		WebDriverWait wait =new WebDriverWait(driver,20);
 		
 	
@@ -46,39 +46,19 @@ public class AS02FirstScriptgGlo {
 		driver.findElement(By.xpath(".//*[@id='search']")).sendKeys("juhi");
 //		Thread.sleep(500);
 		
-		driver.findElement(By.xpath(".//*[@id='search']")).sendKeys(Keys.DOWN);
 		
-//		driver.findElement(By.xpath(".//*[@id='search']")).sendKeys(Keys.DOWN);
-		Thread.sleep(100);
 		
-		JavascriptExecutor js =  (JavascriptExecutor)driver;
-		
-		String script ="return document.getElementById(\"search\").value" ;
-		
-		String text =(String) js.executeScript(script);
-		
-		while(!text.contains("Learning and Development."))
-		{
-			
-			i++;
-			driver.findElement(By.xpath(".//*[@id='search']")).sendKeys(Keys.DOWN);
-			text =(String) js.executeScript(script);
-			System.out.println(text);
-			if(i>10)
-			{
-			break;
-			}
+		//Click sibling with Learning and development
 
-			}
+		Thread.sleep(200);
 
-			if(i>10)
-			{
-			System.out.println("Element not found");
-			}
-			else
-			{
-			System.out.println("Element  found");
-			}
+		driver.findElement(By.xpath(".//*[@id='search']")).sendKeys(Keys.ENTER);
+//		Thread.sleep(200);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@class='name utip' AND contains(text(),'Juhi')]/parent::div/following-sibling::div[contains(text(),'Learning and Development')]/preceding-sibling::div/a")));
+		driver.findElement(By.xpath(".//a[@class='name utip' AND contains(text(),'Juhi')]/parent::div/following-sibling::div[contains(text(),'Learning and Development')]/preceding-sibling::div/a")).click();
+		
+		Thread.sleep(200);
+
 		
 		 driver.quit();
 	}
