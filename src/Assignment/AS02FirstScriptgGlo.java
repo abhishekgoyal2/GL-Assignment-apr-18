@@ -62,6 +62,11 @@ public class AS02FirstScriptgGlo {
 		
 		Thread.sleep(500);
 
+		WebElement birthdday=driver.findElement(By.xpath(".//*[@id='profileInfo']/div/div[1]/form/div[3]/div[1]/div[2]/div/div/p"));
+		String birthdate =birthdday.getText();
+		Thread.sleep(400);
+		
+		System.out.print(birthdate);
 		
 		 driver.quit();
 	}
