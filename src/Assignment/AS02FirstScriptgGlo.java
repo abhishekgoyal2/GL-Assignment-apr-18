@@ -12,6 +12,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -54,10 +55,12 @@ public class AS02FirstScriptgGlo {
 
 		driver.findElement(By.xpath(".//*[@id='search']")).sendKeys(Keys.ENTER);
 //		Thread.sleep(200);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@class='name utip' AND contains(text(),'Juhi')]/parent::div/following-sibling::div[contains(text(),'Learning and Development')]/preceding-sibling::div/a")));
-		driver.findElement(By.xpath(".//a[@class='name utip' AND contains(text(),'Juhi')]/parent::div/following-sibling::div[contains(text(),'Learning and Development')]/preceding-sibling::div/a")).click();
 		
-		Thread.sleep(200);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[contains(text(),'Juhi')]/parent::div/following-sibling::div[contains(text(),'Learning and Development.')]/preceding-sibling::div/a")));
+		driver.findElement(By.xpath(".//a[contains(text(),'Juhi')]/parent::div/following-sibling::div[contains(text(),'Learning and Development.')]/preceding-sibling::div/a")).click();
+		
+		Thread.sleep(500);
 
 		
 		 driver.quit();
