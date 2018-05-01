@@ -27,7 +27,7 @@ public class gmailsign_printemail {
 	
 		Properties prop =new Properties();
 		
-		FileInputStream file = new FileInputStream("C:/Users/abhishek.goyal2/workspace/GL Assignment apr 18/src/Assignment/gmailloginproperty.properties");
+		FileInputStream file = new FileInputStream("C:/Users/abhishek.goyal2/workspace/GL Assignment apr 18/src/Assignment/gmailloginproperty.properties"); //properties file use 
 		
 		prop.load(file);
 		
@@ -41,11 +41,14 @@ public class gmailsign_printemail {
 //			password :.//*[@id='password']/div[1]/div/div[1]/input
 		//next @password .//*[@id='passwordNext']/content/span
 		
-		driver.get(prop.getProperty("url"));
+		//passing the url
+		driver.get(prop.getProperty("url")); 
 		Thread.sleep(300);
 		driver.manage().window().maximize();
 		Thread.sleep(500);
 		
+		//login in to application
+
 		driver.findElement(By.xpath("//*[@id='link-signin']")).click();
 		Thread.sleep(500);
 
@@ -56,6 +59,7 @@ public class gmailsign_printemail {
 			Thread.sleep(200);
 			
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='password']/div[1]/div/div[1]/input")));
+		//login in to application
 			driver.findElement(By.xpath(".//*[@id='password']/div[1]/div/div[1]/input")).sendKeys(prop.getProperty("pwd"));
 
 			
@@ -68,14 +72,14 @@ public class gmailsign_printemail {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id=':2p']/div[5]")));
 	
 			driver.findElement(By.xpath(".//*[@id=':2p']/div[5]")).click();
+			//open social emails 
 			
 		Thread.sleep(200);
 		 List<WebElement> Socialmails=driver.findElements(By.xpath(".//*[@class='xS' ]/div/div/span[@class='bog']"));
 		
-	
-	
 		 int count=Socialmails.size();
 		 System.out.println(count);
+		//Print first 10 email subject 
 		 
 	 for (int i=1;i<=10;i++)
 		 {
@@ -83,12 +87,9 @@ public class gmailsign_printemail {
 				 
 				System.out.println(" printing subject" + " " + i  + "of email " +  emailtest);
 				 
-		
 		 }
-		
 				 
-		
-		 driver.quit();
+		driver.quit();
 	
 	}
 
