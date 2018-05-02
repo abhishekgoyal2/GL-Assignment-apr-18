@@ -60,13 +60,26 @@ public class AS02FirstScriptgGlo {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[contains(text(),'Juhi')]/parent::div/following-sibling::div[contains(text(),'Learning and Development.')]/preceding-sibling::div/a")));
 		driver.findElement(By.xpath(".//a[contains(text(),'Juhi')]/parent::div/following-sibling::div[contains(text(),'Learning and Development.')]/preceding-sibling::div/a")).click();
 		
-		Thread.sleep(500);
-
-		WebElement birthdday=driver.findElement(By.xpath(".//*[@id='profileInfo']/div/div[1]/form/div[3]/div[1]/div[2]/div/div/p"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[@class='form-group']//label[contains(text(),'Birthday')]//following-sibling::div/p")));
+		WebElement birthdday=driver.findElement(By.xpath(".//div[@class='form-group']//label[contains(text(),'Birthday')]//following-sibling::div/p"));
 		String birthdate =birthdday.getText();
-		Thread.sleep(400);
+		Thread.sleep(300);
+
 		
-		System.out.print(birthdate);
+		System.out.println(birthdate);
+		
+		if (birthdate.equalsIgnoreCase("16th March"))
+		{
+			System.out.println("Birthdate is matching");
+
+		}
+		
+		else 
+		{
+			System.out.println("birthdate is not matching");
+
+		}
+		
 		
 		 driver.quit();
 	}
