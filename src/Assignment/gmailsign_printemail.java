@@ -49,7 +49,7 @@ public class gmailsign_printemail {
 		
 		//login in to application
 
-		driver.findElement(By.xpath("//*[@id='link-signin']")).click();
+		driver.findElement(By.xpath(".//*[@id='view_container']/form/div[2]/div/div[2]/div[2]/div")).click();
 		Thread.sleep(500);
 
 		driver.findElement(By.xpath(".//*[@id='identifierId']")).sendKeys(prop.getProperty("email"));
